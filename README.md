@@ -4,4 +4,7 @@ All images (matching *.jpg) are added on a separate page.
 
 If a text file exists with the same name, its contents are added under the image.
 
-If the "-t" option is passed, the filename (without extension) is included in place of the text, if no text file is provided.
+###Options:
+
+ - `-t` — If no text file matching the image name is found, use the image filename (without extension) as the caption
+ - `-n` — (Only in conjunction with '-t') Assume filenames are preceded with a number followed by an underscore ('XX_') and remove that from the caption. Allows controlling the order of output
