@@ -1,10 +1,13 @@
 #!/bin/bash
 
 FNTEXT=0
+NUMBERED=0
 
-while getopts "t" arg; do
+while getopts "tn" arg; do
 	case "${arg}" in
 		t) FNTEXT=1
+			;;
+		n) NUMBERED=1
 			;;
 		?) echo "Invalid option"; exit 1
 	esac
@@ -30,7 +33,12 @@ for FILE in *.jpg; do
 	else
 		if [ "${FNTEXT}" -eq 1 ]
 		then
-			echo "${FILE%.*}" >> temp.tex
+			TEXT="${FILE%.*}"
+			if [ "${NUMBERED}" -eq 1 ]
+			then
+				TEXT=$(echo "${TEXT}" | sed -n 's/^[[:digit:]]\+_\(.*\)$/\1/p')
+			fi
+			echo "${TEXT}" >> temp.tex
 		fi
 	fi
 
