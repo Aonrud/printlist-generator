@@ -51,4 +51,4 @@ echo '\end{document}' >> temp.tex
 
 pdflatex -interaction=batchmode temp.tex
 
-# rm temp.tex temp.log temp.aux
+rm temp.tex temp.log temp.aux
