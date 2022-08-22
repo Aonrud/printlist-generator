@@ -1,0 +1,8 @@
+#!/bin/sh
+
+file="captions"
+
+while read -r line; do
+    delim=":"
+    echo ${line#*$delim} > ${line%$delim*}.txt
+done <$file 
