@@ -29,7 +29,7 @@ for FILE in *.jpg; do
 	if [ -f "${TEXT}" ]
 	then
 		OUT=$(sed -z 's/\n/\n\n\\medskip\n\n/g' $TEXT)
-		echo "\caption{${OUT}}" >> temp.tex
+		echo "\caption[cap]{${OUT}}" >> temp.tex
 	else
 		if [ "${FNTEXT}" -eq 1 ]
 		then
@@ -38,7 +38,7 @@ for FILE in *.jpg; do
 			then
 				TEXT=$(echo "${TEXT}" | sed -n 's/^[[:digit:]]\+_\(.*\)$/\1/p')
 			fi
-			echo "\caption{${TEXT}}" >> temp.tex
+			echo "\caption[cap]{${TEXT}}" >> temp.tex
 		fi
 	fi
 	echo "\end{figure}" >> temp.tex
