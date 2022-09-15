@@ -23,7 +23,8 @@ echo '\documentclass{article}
 
 for FILE in *.jpg; do
 	echo "\begin{figure}
-		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{${FILE}}" >> temp.tex
+		\includegraphics[width=\textwidth,height=\dimexpr\textheight-2\baselineskip-\parskip-
+  \abovecaptionskip-\belowcaptionskip\relax,keepaspectratio]{${FILE}}" >> temp.tex
 
 	TEXT="${FILE%.*}.txt"
 	if [ -f "${TEXT}" ]
